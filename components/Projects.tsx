@@ -24,7 +24,7 @@ const Projects: React.FC = () => {
       desc: 'Futuristic tech news aggregator platform.',
       link: 'https://techskoop.vercel.app',
       span: 'md:col-span-1',
-      img: 'https://picsum.photos/seed/tech/600/600',
+      img: 'https://i.pinimg.com/736x/d4/82/cf/d482cf356de039d8948fa6aa5d03d714.jpg',
       color: 'from-pink-500/20'
     },
     {

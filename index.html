@@ -115,8 +115,9 @@
       .cursor-active .cursor-dot { transform: scale(3); opacity: 0.5; }
       .cursor-active .cursor-trail { transform: scale(2); border-color: #ec4899; background: rgba(236, 72, 153, 0.1); }
 
-      /* MOBILE VIEW FIX FOR DESIGN GALLERY */
+      /* MOBILE VIEW FIX FOR DESIGN GALLERY & PROJECTS */
       @media (max-width: 767px) {
+        /* Design Gallery (Visual Archive) Mobile Styles */
         .carousel-scene {
           perspective: none !important;
           height: auto !important;
@@ -138,7 +139,7 @@
           transform-style: flat !important;
           width: max-content !important;
           height: auto !important;
-          animation: slide-mobile 30s linear infinite !important;
+          animation: slide-mobile-design 30s linear infinite !important;
         }
 
         .carousel-track:hover {
@@ -165,20 +166,52 @@
           box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
         }
         
-        /* Disable reflection on mobile for performance */
         .carousel-item-reflection {
           display: none !important;
         }
 
-        /* Glassmorphism Title Bar Visibility on Mobile */
         .carousel-item-title {
           opacity: 1 !important;
         }
+
+        /* Project Section Mobile Styles */
+        .projects-container-mobile {
+          display: flex !important;
+          flex-wrap: nowrap !important;
+          overflow-x: auto !important;
+          scroll-snap-type: x mandatory !important;
+          gap: 20px !important;
+          padding-bottom: 20px !important;
+          -webkit-overflow-scrolling: touch !important;
+        }
+
+        .projects-track-mobile {
+          display: flex !important;
+          flex-wrap: nowrap !important;
+          width: max-content !important;
+          animation: slide-mobile-projects 40s linear infinite !important;
+        }
+
+        .projects-track-mobile:hover {
+          animation-play-state: paused !important;
+        }
+
+        .project-card-mobile {
+          flex: 0 0 300px !important;
+          height: 400px !important;
+          scroll-snap-align: center !important;
+          margin-right: 20px !important;
+        }
       }
 
-      @keyframes slide-mobile {
+      @keyframes slide-mobile-design {
         0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-300px * 8)); } /* Approximate width of 8 cards + gap */
+        100% { transform: translateX(calc(-300px * 8)); }
+      }
+
+      @keyframes slide-mobile-projects {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-320px * 7)); } /* 7 projects */
       }
     </style>
     <script type="importmap">

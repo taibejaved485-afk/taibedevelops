@@ -64,7 +64,8 @@ const App: React.FC = () => {
       
       <Header />
       
-      <main className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-32 py-20">
+      {/* Adjusted space-y for mobile (12) vs desktop (32) */}
+      <main className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 lg:space-y-32 py-10 lg:py-20">
         <section id="home" className="reveal-hidden" ref={(el) => { revealRefs.current[0] = el; }}>
           <Hero />
         </section>

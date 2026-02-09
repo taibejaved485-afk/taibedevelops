@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
       desc: 'Elegant personal branding showcase with fluid transitions.',
       link: 'https://ahadportfolio-inky.vercel.app',
       span: 'md:col-span-2',
-      img: 'https://picsum.photos/seed/ahad/800/600',
+      img: 'https://i.pinimg.com/736x/26/5c/43/265c43038b3303cd2d2a87590f8b36c6.jpg',
       color: 'from-cyan-500/20'
     },
     {
@@ -16,7 +16,7 @@ const Projects: React.FC = () => {
       desc: 'Minimalist professional landing page.',
       link: 'https://ahmadprotfolio.vercel.app',
       span: 'md:col-span-1',
-      img: 'https://picsum.photos/seed/ahmad/600/600',
+      img: 'https://i.pinimg.com/736x/96/4d/36/964d3602afbd96c076f212275c2b5e00.jpg',
       color: 'from-purple-500/20'
     },
     {
@@ -32,7 +32,7 @@ const Projects: React.FC = () => {
       desc: 'Luxury aesthetics and client booking portal.',
       link: 'https://bridal-saloon.vercel.app',
       span: 'md:col-span-1',
-      img: 'https://picsum.photos/seed/bridal/600/600',
+      img: 'https://i.pinimg.com/736x/f1/37/66/f13766f130f290f2d5d0d703fc142bdf.jpg',
       color: 'from-blue-500/20'
     },
     {
@@ -40,7 +40,7 @@ const Projects: React.FC = () => {
       desc: 'High-concept digital agency interface.',
       link: 'https://motral-web-studio.vercel.app',
       span: 'md:col-span-1',
-      img: 'https://picsum.photos/seed/studio/600/600',
+      img: 'https://i.pinimg.com/1200x/5d/2f/86/5d2f863e23489e400eaa1d3438ecfdad.jpg',
       color: 'from-cyan-500/20'
     },
     {
@@ -52,11 +52,11 @@ const Projects: React.FC = () => {
       color: 'from-pink-500/20'
     },
     {
-      title: 'Pizza Hut Clone',
+      title: 'TastyBites',
       desc: 'Pixel-perfect e-commerce responsive clone.',
       link: 'https://pizza-hut-murex.vercel.app',
       span: 'md:col-span-1',
-      img: 'https://picsum.photos/seed/pizza/600/800',
+      img: 'https://i.pinimg.com/736x/ab/e6/57/abe65721a6d06545c99230151aab0177.jpg',
       color: 'from-orange-500/20'
     }
   ];
@@ -106,7 +106,7 @@ const Projects: React.FC = () => {
                 <img 
                   src={project.img} 
                   alt={project.title} 
-                  className="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-1000" 
+                  className="w-full h-full object-cover object-top grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-1000" 
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${project.color} to-black/90`}></div>
               </div>

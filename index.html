@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taibe Javed | AI Developer & Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      * {
+        cursor: none !important;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #020202;
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+      h1, h2, h3, .font-futuristic {
+        font-family: 'Orbitron', sans-serif;
+      }
+      .font-terminal {
+        font-family: 'Fira Code', monospace;
+      }
+      
+      .noise-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.04;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+
+      .gemini-glow {
+        background: radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.12), rgba(168, 85, 247, 0.08), rgba(236, 72, 153, 0.05), transparent 75%);
+      }
+
+      .metallic-text {
+        background: linear-gradient(180deg, #ffffff 0%, #a0a0a0 45%, #ffffff 55%, #808080 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+      }
+
+      .hexagon-clip {
+        clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      }
+
+      .pulse-glow {
+        animation: pulse-glow 3s infinite ease-in-out;
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.2); }
+        50% { box-shadow: 0 0 50px rgba(34, 211, 238, 0.5); }
+      }
+
+      @keyframes scan {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(400%); }
+      }
+
+      .shine-sweep {
+        position: relative;
+        overflow: hidden;
+      }
+      .shine-sweep::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
+        transform: rotate(45deg);
+        animation: shine 5s infinite;
+      }
+
+      @keyframes shine {
+        0% { transform: translateX(-100%) rotate(45deg); }
+        20%, 100% { transform: translateX(100%) rotate(45deg); }
+      }
+
+      .reveal-hidden {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, opacity;
+      }
+
+      .reveal-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+      }
+
+      .glass-card:hover {
+        border-color: rgba(34, 211, 238, 0.4);
+      }
+
+      .floating {
+        animation: floating 4s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+
+      /* Scroll Mouse Icon */
+      .mouse-scroll {
+        width: 30px;
+        height: 50px;
+        border: 2px solid rgba(34, 211, 238, 0.5);
+        border-radius: 20px;
+        position: relative;
+      }
+      .mouse-scroll::before {
+        content: '';
+        width: 4px;
+        height: 8px;
+        background: #22d3ee;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 8px;
+        border-radius: 2px;
+        animation: mouse-scroll 1.5s infinite;
+      }
+      @keyframes mouse-scroll {
+        0% { opacity: 1; transform: translate(-50%, 0); }
+        100% { opacity: 0; transform: translate(-50%, 20px); }
+      }
+
+      /* Custom Cursor Trail */
+      .cursor-dot {
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        background: #22d3ee;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10001;
+        box-shadow: 0 0 10px #22d3ee;
+      }
+      .cursor-trail {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: rgba(34, 211, 238, 0.15);
+        border: 1px solid rgba(34, 211, 238, 0.3);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        transition: transform 0.1s ease-out;
+        filter: blur(2px);
+      }
+      
+      .cursor-active .cursor-dot { transform: scale(3); opacity: 0.5; }
+      .cursor-active .cursor-trail { transform: scale(2); border-color: #ec4899; background: rgba(236, 72, 153, 0.1); }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "react": "https://esm.sh/react@^19.2.4",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div class="noise-overlay"></div>
+  </body>
+</html>

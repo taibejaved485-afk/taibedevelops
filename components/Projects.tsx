@@ -56,7 +56,7 @@ const Projects: React.FC = () => {
       desc: 'Pixel-perfect e-commerce responsive clone.',
       link: 'https://pizza-hut-murex.vercel.app',
       span: 'md:col-span-1',
-      img: 'https://i.pinimg.com/1200x/62/01/be/6201be9a9f1d1704b46da58a92af6196.jpg',
+      img: 'https://i.pinimg.com/736x/50/53/b2/5053b225d1f30ad8e4adff11a3f3d5c0.jpg',
       color: 'from-orange-500/20'
     }
   ];

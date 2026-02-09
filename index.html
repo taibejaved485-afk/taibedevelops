@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,15 +11,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-      * {
-        cursor: none !important;
+      /* Hide scrollbar but keep functionality */
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
       }
+      
       body {
         font-family: 'Inter', sans-serif;
         background-color: #020202;
         color: #ffffff;
         overflow-x: hidden;
       }
+
+      /* Cursor is only hidden when the app is ready */
+      .app-ready, .app-ready * {
+        cursor: none !important;
+      }
+
       h1, h2, h3, .font-futuristic {
         font-family: 'Orbitron', sans-serif;
       }
@@ -49,45 +59,6 @@
         filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
       }
 
-      .hexagon-clip {
-        clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-      }
-
-      .pulse-glow {
-        animation: pulse-glow 3s infinite ease-in-out;
-      }
-
-      @keyframes pulse-glow {
-        0%, 100% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.2); }
-        50% { box-shadow: 0 0 50px rgba(34, 211, 238, 0.5); }
-      }
-
-      @keyframes scan {
-        0% { transform: translateY(-100%); }
-        100% { transform: translateY(400%); }
-      }
-
-      .shine-sweep {
-        position: relative;
-        overflow: hidden;
-      }
-      .shine-sweep::after {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
-        transform: rotate(45deg);
-        animation: shine 5s infinite;
-      }
-
-      @keyframes shine {
-        0% { transform: translateX(-100%) rotate(45deg); }
-        20%, 100% { transform: translateX(100%) rotate(45deg); }
-      }
-
       .reveal-hidden {
         opacity: 0;
         transform: translateY(30px);
@@ -112,40 +83,6 @@
         border-color: rgba(34, 211, 238, 0.4);
       }
 
-      .floating {
-        animation: floating 4s ease-in-out infinite;
-      }
-
-      @keyframes floating {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
-      }
-
-      /* Scroll Mouse Icon */
-      .mouse-scroll {
-        width: 30px;
-        height: 50px;
-        border: 2px solid rgba(34, 211, 238, 0.5);
-        border-radius: 20px;
-        position: relative;
-      }
-      .mouse-scroll::before {
-        content: '';
-        width: 4px;
-        height: 8px;
-        background: #22d3ee;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 8px;
-        border-radius: 2px;
-        animation: mouse-scroll 1.5s infinite;
-      }
-      @keyframes mouse-scroll {
-        0% { opacity: 1; transform: translate(-50%, 0); }
-        100% { opacity: 0; transform: translate(-50%, 20px); }
-      }
-
       /* Custom Cursor Trail */
       .cursor-dot {
         position: fixed;
@@ -156,6 +93,8 @@
         pointer-events: none;
         z-index: 10001;
         box-shadow: 0 0 10px #22d3ee;
+        top: 0;
+        left: 0;
       }
       .cursor-trail {
         position: fixed;
@@ -168,6 +107,8 @@
         z-index: 10000;
         transition: transform 0.1s ease-out;
         filter: blur(2px);
+        top: 0;
+        left: 0;
       }
       
       .cursor-active .cursor-dot { transform: scale(3); opacity: 0.5; }
@@ -178,10 +119,12 @@
       "imports": {
         "react/": "https://esm.sh/react@^19.2.4/",
         "react": "https://esm.sh/react@^19.2.4",
-        "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+        "react-dom/client": "https://esm.sh/react-dom@^19.2.4/client"
       }
     }
     </script>
+    <script type="module" src="index.tsx"></script>
   </head>
   <body>
     <div id="root"></div>

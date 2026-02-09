@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import App from './App.tsx';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -14,3 +14,6 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+// Indicate that the app is ready for cursor effects
+document.body.classList.add('app-ready');

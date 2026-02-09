@@ -6,7 +6,7 @@ const VisualGallery: React.FC = () => {
   const autoPlayRef = useRef<number | null>(null);
 
   const images = [
-    { title: "Business Card Design I", url: "https://i.pinimg.com/736x/41/c6/bc/41c6bc072fb5d2409740d9b8da12dac0.jpg" },
+    { title: "Business Card Design I", url: "https://i.pinimg.com/736x/76/dd/04/76dd04044359cf93de0af442b35c46aa.jpg" },
     { title: "Business Card Design II", url: "https://i.pinimg.com/736x/6e/17/81/6e1781bea42221afd27249d6b4fb87ae.jpg" },
     { title: "Neo UI Concept", url: "https://picsum.photos/seed/ui1/800/1000" },
     { title: "Brand Identity X", url: "https://picsum.photos/seed/ui2/800/1000" },

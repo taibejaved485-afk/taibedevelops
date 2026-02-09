@@ -1,15 +1,15 @@
 
-import React, { useEffect, useState } from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import AboutTerminal from './components/AboutTerminal';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import VisualGallery from './components/VisualGallery';
-import Contact from './components/Contact';
-import CustomCursor from './components/CustomCursor';
-import WhatsAppButton from './components/WhatsAppButton';
-import { useIntersectionObserver } from './hooks/useIntersectionObserver';
+import React from 'react';
+import Header from './components/Header.tsx';
+import Hero from './components/Hero.tsx';
+import AboutTerminal from './components/AboutTerminal.tsx';
+import Skills from './components/Skills.tsx';
+import Projects from './components/Projects.tsx';
+import VisualGallery from './components/VisualGallery.tsx';
+import Contact from './components/Contact.tsx';
+import CustomCursor from './components/CustomCursor.tsx';
+import WhatsAppButton from './components/WhatsAppButton.tsx';
+import { useIntersectionObserver } from './hooks/useIntersectionObserver.ts';
 
 const App: React.FC = () => {
   const revealRefs = useIntersectionObserver({
@@ -28,32 +28,26 @@ const App: React.FC = () => {
       <Header />
       
       <main className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-32 py-20">
-        {/* Fix: Ref callbacks must return void; added braces to avoid returning the element instance */}
         <section id="home" className="reveal-hidden" ref={(el) => { revealRefs.current[0] = el; }}>
           <Hero />
         </section>
 
-        {/* Fix: Ref callbacks must return void */}
         <section id="about" className="reveal-hidden" ref={(el) => { revealRefs.current[1] = el; }}>
           <AboutTerminal />
         </section>
 
-        {/* Fix: Ref callbacks must return void */}
         <section id="skills" className="reveal-hidden" ref={(el) => { revealRefs.current[2] = el; }}>
           <Skills />
         </section>
 
-        {/* Fix: Ref callbacks must return void */}
         <section id="projects" className="reveal-hidden" ref={(el) => { revealRefs.current[3] = el; }}>
           <Projects />
         </section>
 
-        {/* Fix: Ref callbacks must return void */}
         <section id="gallery" className="reveal-hidden" ref={(el) => { revealRefs.current[4] = el; }}>
           <VisualGallery />
         </section>
 
-        {/* Fix: Ref callbacks must return void */}
         <section id="contact" className="reveal-hidden" ref={(el) => { revealRefs.current[5] = el; }}>
           <Contact />
         </section>

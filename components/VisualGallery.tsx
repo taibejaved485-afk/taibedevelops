@@ -10,7 +10,7 @@ const VisualGallery: React.FC = () => {
     { title: "Logo Mockup I", url: "https://i.pinimg.com/736x/76/dd/04/76dd04044359cf93de0af442b35c46aa.jpg" },
     { title: "Logo Mockup II", url: "https://i.pinimg.com/736x/6e/17/81/6e1781bea42221afd27249d6b4fb87ae.jpg" },
     { title: "Logo Mockup III", url: "https://i.pinimg.com/736x/41/c6/bc/41c6bc072fb5d2409740d9b8da12dac0.jpg" },
-    { title: "Brand Identity X", url: "https://picsum.photos/seed/ui2/800/1000" },
+    { title: "Brand Identity X", url: "https://i.pinimg.com/736x/45/f9/c7/45f9c7b9264fd25418a9d378cb9d36fb.jpg" },
     { title: "Vector Masterpiece", url: "https://picsum.photos/seed/ui3/800/1000" },
     { title: "Digital Ecosystem", url: "https://picsum.photos/seed/ui4/800/1000" },
     { title: "Typography Lab", url: "https://picsum.photos/seed/ui5/800/1000" },

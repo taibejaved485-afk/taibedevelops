@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 
 const VisualGallery: React.FC = () => {
@@ -53,13 +54,13 @@ const VisualGallery: React.FC = () => {
 
       {/* Carousel Scene */}
       <div 
-        className="relative h-[500px] w-full flex items-center justify-center"
+        className="carousel-scene relative h-[500px] w-full flex items-center justify-center"
         style={{ perspective: '2000px' }}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
         <div 
-          className="relative w-full h-full flex items-center justify-center transition-transform duration-500 ease-out"
+          className="carousel-track relative w-full h-full flex items-center justify-center transition-transform duration-500 ease-out"
           style={{ 
             transformStyle: 'preserve-3d',
             transform: `rotateY(${rotation}deg)` 
@@ -75,7 +76,7 @@ const VisualGallery: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="absolute w-[280px] md:w-[350px] aspect-[3/4] transition-all duration-700 ease-in-out group"
+                className="carousel-item absolute w-[280px] md:w-[350px] aspect-[3/4] transition-all duration-700 ease-in-out group"
                 style={{
                   transform: `rotateY(${itemAngle}deg) translateZ(${radius}px)`,
                   backfaceVisibility: 'hidden',
@@ -83,7 +84,7 @@ const VisualGallery: React.FC = () => {
               >
                 {/* Main Card */}
                 <div 
-                  className={`relative w-full h-full rounded-2xl overflow-hidden border border-white/10 transition-all duration-700 ${
+                  className={`carousel-item-inner relative w-full h-full rounded-2xl overflow-hidden border border-white/10 transition-all duration-700 ${
                     isFront ? 'scale-110 opacity-100 blur-0 shadow-[0_0_50px_rgba(34,211,238,0.3)]' : 'scale-90 opacity-30 blur-[6px]'
                   }`}
                 >
@@ -94,7 +95,7 @@ const VisualGallery: React.FC = () => {
                   />
                   
                   {/* Glassmorphism Title Bar */}
-                  <div className={`absolute bottom-0 left-0 right-0 p-6 bg-black/40 backdrop-blur-md border-t border-white/10 transition-opacity duration-500 ${isFront ? 'opacity-100' : 'opacity-0'}`}>
+                  <div className={`carousel-item-title absolute bottom-0 left-0 right-0 p-6 bg-black/40 backdrop-blur-md border-t border-white/10 transition-opacity duration-500 ${isFront ? 'opacity-100' : 'opacity-0'}`}>
                     <p className="text-xs font-futuristic tracking-[0.2em] text-cyan-400 uppercase mb-1">Project {idx + 1}</p>
                     <h4 className="text-white font-bold text-lg">{img.title}</h4>
                   </div>
@@ -102,7 +103,7 @@ const VisualGallery: React.FC = () => {
 
                 {/* Floor Reflection */}
                 <div 
-                  className="absolute top-[102%] left-0 w-full h-full opacity-20 pointer-events-none transition-all duration-700"
+                  className="carousel-item-reflection absolute top-[102%] left-0 w-full h-full opacity-20 pointer-events-none transition-all duration-700"
                   style={{
                     transform: 'rotateX(180deg) scaleY(0.5)',
                     maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1), transparent)',

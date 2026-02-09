@@ -48,7 +48,7 @@ const Projects: React.FC = () => {
       desc: 'Physics-based interactive art engine.',
       link: 'https://motralparticles.vercel.app',
       span: 'md:col-span-2',
-      img: 'https://picsum.photos/seed/particles/800/600',
+      img: 'https://i.pinimg.com/1200x/ef/09/3d/ef093de56256b5d3e2aabeda0d694ad1.jpg',
       color: 'from-pink-500/20'
     },
     {
@@ -56,7 +56,7 @@ const Projects: React.FC = () => {
       desc: 'Pixel-perfect e-commerce responsive clone.',
       link: 'https://pizza-hut-murex.vercel.app',
       span: 'md:col-span-1',
-      img: 'https://i.pinimg.com/736x/ab/e6/57/abe65721a6d06545c99230151aab0177.jpg',
+      img: 'https://i.pinimg.com/1200x/62/01/be/6201be9a9f1d1704b46da58a92af6196.jpg',
       color: 'from-orange-500/20'
     }
   ];

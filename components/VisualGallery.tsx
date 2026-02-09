@@ -6,9 +6,9 @@ const VisualGallery: React.FC = () => {
   const autoPlayRef = useRef<number | null>(null);
 
   const images = [
-    { title: "Business Card Design I", url: "https://i.pinimg.com/736x/76/dd/04/76dd04044359cf93de0af442b35c46aa.jpg" },
-    { title: "Business Card Design II", url: "https://i.pinimg.com/736x/6e/17/81/6e1781bea42221afd27249d6b4fb87ae.jpg" },
-    { title: "Neo UI Concept", url: "https://picsum.photos/seed/ui1/800/1000" },
+    { title: "Logo Mockup I", url: "https://i.pinimg.com/736x/76/dd/04/76dd04044359cf93de0af442b35c46aa.jpg" },
+    { title: "Logo Mockup II", url: "https://i.pinimg.com/736x/6e/17/81/6e1781bea42221afd27249d6b4fb87ae.jpg" },
+    { title: "Logo Mockup III", url: "https://i.pinimg.com/736x/41/c6/bc/41c6bc072fb5d2409740d9b8da12dac0.jpg" },
     { title: "Brand Identity X", url: "https://picsum.photos/seed/ui2/800/1000" },
     { title: "Vector Masterpiece", url: "https://picsum.photos/seed/ui3/800/1000" },
     { title: "Digital Ecosystem", url: "https://picsum.photos/seed/ui4/800/1000" },
@@ -18,7 +18,7 @@ const VisualGallery: React.FC = () => {
 
   const totalItems = images.length;
   const angleStep = 360 / totalItems;
-  const radius = 450; // Increased radius slightly for 8 items
+  const radius = 450; // Radius for the 3D circle
 
   useEffect(() => {
     if (!isPaused) {
@@ -70,7 +70,6 @@ const VisualGallery: React.FC = () => {
             // Calculate focus state based on current rotation
             const currentItemAngle = (itemAngle + rotation) % 360;
             const normalizedAngle = (currentItemAngle + 360) % 360;
-            // Slightly wider front check for 8 items
             const isFront = normalizedAngle < 20 || normalizedAngle > 340;
 
             return (

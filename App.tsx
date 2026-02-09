@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './components/Header.tsx';
 import Hero from './components/Hero.tsx';
 import AboutTerminal from './components/AboutTerminal.tsx';
@@ -10,12 +10,49 @@ import Contact from './components/Contact.tsx';
 import CustomCursor from './components/CustomCursor.tsx';
 import WhatsAppButton from './components/WhatsAppButton.tsx';
 import { useIntersectionObserver } from './hooks/useIntersectionObserver.ts';
+import { GoogleGenAI } from "@google/genai";
 
 const App: React.FC = () => {
   const revealRefs = useIntersectionObserver({
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
   });
+
+  // Dynamic Favicon Generation using Gemini
+  useEffect(() => {
+    const generateFavicon = async () => {
+      const storedFavicon = localStorage.getItem('taibe_custom_favicon');
+      if (storedFavicon) {
+        const faviconLink = document.getElementById('dynamic-favicon') as HTMLLinkElement;
+        if (faviconLink) faviconLink.href = storedFavicon;
+        return;
+      }
+
+      try {
+        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+        const prompt = "A sleek geometric favicon for a software engineer. An abstract hexagon shape formed by interconnected circuit lines and nodes, symbolizing connectivity and clean code. Minimalist style, gradient of emerald green and dark slate. Flat design, professional, sharp edges, isolated on white background.";
+        
+        const response = await ai.models.generateContent({
+          model: 'gemini-2.5-flash-image',
+          contents: {
+            parts: [{ text: prompt }]
+          }
+        });
+
+        const imagePart = response.candidates?.[0]?.content?.parts.find(p => p.inlineData);
+        if (imagePart?.inlineData) {
+          const base64Data = `data:${imagePart.inlineData.mimeType};base64,${imagePart.inlineData.data}`;
+          localStorage.setItem('taibe_custom_favicon', base64Data);
+          const faviconLink = document.getElementById('dynamic-favicon') as HTMLLinkElement;
+          if (faviconLink) faviconLink.href = base64Data;
+        }
+      } catch (error) {
+        console.error("Favicon generation failed:", error);
+      }
+    };
+
+    generateFavicon();
+  }, []);
 
   return (
     <div className="relative min-h-screen selection:bg-cyan-500/30">
